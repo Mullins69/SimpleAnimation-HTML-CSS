@@ -1,0 +1,171 @@
+
+html, body{
+  height: 100%;
+  width:100%;
+  overflow: hidden;
+  margin: 0;
+}
+.sun{
+  z-index: -1;
+  margin-top: 0px;
+}
+.grass, .sky, .road{
+  position: relative;
+}
+.bird {
+  margin-bottom: 90px;
+  width: 40px;
+  float: left;
+}
+.city{
+  background: rgb(39, 73, 87);
+}
+
+.sky{
+  height: 40%;
+  background: rgb(39, 73, 87);
+}
+
+.grass{
+  height: 30%;
+  background: rgba(46, 139, 87, 0.4);
+}
+
+.mullins{
+  margin: 0;
+}
+.road{
+  height: 30%;
+  background: rgb(99, 92, 92);
+  box-sizing: border-box;
+  border-top: 10px solid rgb(190, 182, 182);
+  border-bottom: 10px solid grey;
+  width: 100%;
+}
+
+.lines{
+  box-sizing: border-box;
+  border: 5px dashed #fff;
+  height: 0px;
+  width: 100%;
+  position: absolute;
+  top: 45%;
+}
+
+/*// ELEMENTS TO ANIMATE //*/
+
+.car1 {
+  position: absolute;
+  top: -50px;
+  left: 0px;
+  /* Call the keyframe */
+  animation-name: drive;
+  /* Specify how long you want the animation to last for */
+  animation-duration: 3s;
+  /* It takes the last keyframe element (to) and applies it to the image */
+  animation-direction: alternate;
+  
+  /* It takes the first keyframe element (from) and applies it to the image */
+  animation-fill-mode: both;
+  
+  /* Delays the animation */
+  animation-delay: 2s;
+  
+  /* Determines how many times you want the animation to repeat */
+  animation-iteration-count: infinite;
+
+  /* Determines the speed of the animation */
+  animation-timing-function: ease-in-out;
+}
+
+.car2 {
+  position: absolute;
+  top: 80px;
+  left: 0;
+  animation-name: drive;
+  animation-duration: 3s;
+  animation-fill-mode: both;
+  animation-iteration-count: infinite;
+  animation-delay: 2s;
+  animation-direction: alternate;
+}
+
+.cloud {
+  position: absolute;
+  z-index: 1;
+}
+
+
+.mullins {
+  animation: 3s slide-left;
+}
+@keyframes slide-left {
+  from {
+    margin-left: 100%;
+  }
+  to {
+    margin-left: 0%;
+  } 
+}
+.cloud:nth-child(2) {
+  width: 200px;
+  top: 100px;
+  opacity: 0.8;
+  /* Short hand, the first item has to be animation and second item has to be duration, the rest of the order does not matter */
+  animation: wind 20s linear infinite reverse;
+}
+
+.cloud:nth-child(3) {
+  width: 300px;
+  top:0;
+  width: 200px;
+  top: 50px;
+  opacity: 0.8;
+  animation: wind 30s linear infinite reverse;
+}
+.plane{
+
+  animation: plane 20s linear infinite ;
+
+}
+
+/*// KEYFRAMES //*/
+
+/* Image will move from the right to the left */
+@keyframes drive {
+  from { transform: translateX(-100px);} /* Starting point */
+  to { transform: translateX(1700px);} /* Ending point */
+}
+
+@keyframes wind {
+  from { left: -300px }
+  to { left: 100% }
+}
+.bird {
+  animation: bird 10s linear infinite ;
+}
+@keyframes bird {
+  from { transform: translateX(-100px);} /* Starting point */
+  to { transform: translateX(1700px);} /* Ending point */
+}
+@keyframes plane {
+  from { transform: translateX(-100px);} /* Starting point */
+  to { transform: translateX(1700px);} /* Ending point */
+}
+.mullins {
+  animation: bounce 2s infinite;
+  -webkit-animation: bounce 2s infinite;
+  -moz-animation: bounce 2s infinite;
+  -o-animation: bounce 2s infinite;
+}
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-30px);
+  }
+  60% {
+    transform: translateY(-15px);
+  }
+}
